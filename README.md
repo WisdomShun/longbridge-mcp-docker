@@ -1,6 +1,6 @@
-# LongportMCPDocker
+# longbridge-mcp-docker
 
-[![Docker Build and Test](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml)
+[![Docker Build and Test](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml)
 [![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -32,8 +32,8 @@ This project packages the `longport-mcp` server in a Docker container, making it
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/WisdomShun/LongportMCPDocker.git
-cd LongportMCPDocker
+git clone https://github.com/WisdomShun/longbridge-mcp-docker.git
+cd longbridge-mcp-docker
 ```
 
 ### 2. Configure Environment Variables
@@ -97,7 +97,7 @@ LONGPORT_READONLY=false
 ## Project Structure
 
 ```
-LongportMCPDocker/
+longbridge-mcp-docker/
 ├── docker-compose.yml    # Docker Compose configuration
 ├── Dockerfile           # Docker image definition
 ├── entrypoint.sh       # Container startup script

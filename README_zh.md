@@ -1,6 +1,6 @@
-# LongportMCPDocker
+# longbridge-mcp-docker
 
-[![Docker 构建测试](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml)
+[![Docker 构建测试](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml)
 [![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 [![许可证](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -32,8 +32,8 @@ Longbridge MCP（模型上下文协议）服务器的 Docker 封装，提供简�
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/WisdomShun/LongportMCPDocker.git
-cd LongportMCPDocker
+git clone https://github.com/WisdomShun/longbridge-mcp-docker.git
+cd longbridge-mcp-docker
 ```
 
 ### 2. 配置环境变量
@@ -97,7 +97,7 @@ LONGPORT_READONLY=false
 ## 项目结构
 
 ```
-LongportMCPDocker/
+longbridge-mcp-docker/
 ├── docker-compose.yml    # Docker Compose 配置
 ├── Dockerfile           # Docker 镜像定义
 ├── entrypoint.sh       # 容器启动脚本
