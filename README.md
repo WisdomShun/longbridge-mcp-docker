@@ -1,5 +1,9 @@
 # LongportMCPDocker
 
+[![Docker Build and Test](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml)
+[![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 English | [简体中文](README_zh.md)
 
 A Docker wrapper for the Longbridge MCP (Model Context Protocol) server, providing easy deployment and management of the Longport API service.
