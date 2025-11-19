@@ -1,4 +1,4 @@
-name: Docker Build and Test
+name: Build,Test,Security Scan
 
 on:
   push:

@@ -1,5 +1,9 @@
 # LongportMCPDocker
 
+[![Docker 构建测试](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/LongportMCPDocker/actions/workflows/docker-build-test.yml)
+[![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
+[![许可证](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 [English](README.md) | 简体中文
 
 Longbridge MCP（模型上下文协议）服务器的 Docker 封装，提供简单的部署和管理 Longport API 服务的方式。
