@@ -1,0 +1,31 @@
+services:
+  longport-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: longport-mcp:mini
+    container_name: longport-mcp-server
+    restart: unless-stopped
+    
+    # Environment variables
+    environment:
+      - LONGPORT_APP_KEY=${LONGPORT_APP_KEY}
+      - LONGPORT_APP_SECRET=${LONGPORT_APP_SECRET}
+      - LONGPORT_ACCESS_TOKEN=${LONGPORT_ACCESS_TOKEN}
+      - LONGPORT_READONLY=${LONGPORT_READONLY:-true}
+    
+    # Port mapping
+    ports:
+      - "${SERVER_PORT:-8000}:8000"
+    
+    # Mount log directory to host
+    volumes:
+      - ./logs:/var/log/longport-mcp
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
