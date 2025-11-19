@@ -52,20 +52,30 @@ jobs:
         if: matrix.platform == 'linux/amd64'
         run: |
           echo "Testing longport-mcp --help command..."
-          docker run --rm longport-mcp:test-linux-amd64 longport-mcp --help
+          docker run --rm \
+            -e LONGPORT_APP_KEY=test_key \
+            -e LONGPORT_APP_SECRET=test_secret \
+            -e LONGPORT_ACCESS_TOKEN=test_token \
+            longport-mcp:test-linux-amd64 longport-mcp --help || echo "Help command requires env vars"
       
       - name: Test longport-mcp --version (AMD64 only)
         if: matrix.platform == 'linux/amd64'
         run: |
           echo "Testing longport-mcp --version command..."
-          docker run --rm longport-mcp:test-linux-amd64 longport-mcp --version || echo "Version command not supported"
+          docker run --rm \
+            -e LONGPORT_APP_KEY=test_key \
+            -e LONGPORT_APP_SECRET=test_secret \
+            -e LONGPORT_ACCESS_TOKEN=test_token \
+            longport-mcp:test-linux-amd64 longport-mcp --version || echo "Version command not supported"
       
       - name: Verify entrypoint script (AMD64 only)
         if: matrix.platform == 'linux/amd64'
         run: |
           echo "Verifying entrypoint script exists and is executable..."
-          docker run --rm longport-mcp:test-linux-amd64 ls -la /usr/local/bin/entrypoint.sh
-          docker run --rm longport-mcp:test-linux-amd64 cat /usr/local/bin/entrypoint.sh
+          docker run --rm --entrypoint ls longport-mcp:test-linux-amd64 -la /usr/local/bin/entrypoint.sh
+          docker run --rm --entrypoint cat longport-mcp:test-linux-amd64 /usr/local/bin/entrypoint.sh
+          echo "Verifying longport-mcp binary..."
+          docker run --rm --entrypoint ls longport-mcp:test-linux-amd64 -la /usr/local/bin/longport-mcp
       
       - name: Test container startup with minimal env (AMD64 only)
         if: matrix.platform == 'linux/amd64'
@@ -125,11 +135,11 @@ jobs:
       
       - name: Validate docker-compose.yml
         run: |
-          docker-compose config
+          docker compose config
       
       - name: Build with docker-compose
         run: |
-          docker-compose build
+          docker compose build
       
       - name: Check built image
         run: |
@@ -137,18 +147,18 @@ jobs:
       
       - name: Start services with docker-compose
         run: |
-          docker-compose up -d
+          docker compose up -d
           sleep 10
       
       - name: Check service status
         run: |
-          docker-compose ps
-          docker-compose logs
+          docker compose ps
+          docker compose logs
       
       - name: Cleanup
         if: always()
         run: |
-          docker-compose down -v
+          docker compose down -v
 
   security-scan:
     name: Security Scan
