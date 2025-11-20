@@ -15,6 +15,7 @@ Longbridge MCP（模型上下文协议）服务器的 Docker 封装，提供简�
 ## 特性
 
 - 🐳 **基于 Docker 的部署** - 使用 Docker Compose 轻松设置
+- 📦 **预构建镜像** - 通过 GitHub Container Registry 提供多架构镜像
 - 🔒 **安全配置** - 基于环境变量的凭证管理
 - 📊 **持久化日志** - 日志存储在挂载卷中
 - 💚 **健康监控** - 内置健康检查确保服务可靠性
@@ -29,14 +30,39 @@ Longbridge MCP（模型上下文协议）服务器的 Docker 封装，提供简�
 
 ## 快速开始
 
-### 1. 克隆仓库
+### 方式一：使用预构建镜像 (推荐)
+
+直接使用 GitHub Container Registry 上的预构建镜像：
+
+```bash
+# 拉取最新版本
+docker pull ghcr.io/wisdomshun/longportmcpdocker:latest
+
+# 或拉取特定版本
+docker pull ghcr.io/wisdomshun/longportmcpdocker:v1.0.0
+
+# 直接运行
+docker run -d \
+  --name longport-mcp-server \
+  -e LONGPORT_APP_KEY=your_app_key \
+  -e LONGPORT_APP_SECRET=your_app_secret \
+  -e LONGPORT_ACCESS_TOKEN=your_access_token \
+  -e LONGPORT_READONLY=true \
+  -p 8000:8000 \
+  -v ./logs:/var/log/longport-mcp \
+  ghcr.io/wisdomshun/longportmcpdocker:latest
+```
+
+### 方式二：从源码构建
+
+#### 1. 克隆仓库
 
 ```bash
 git clone https://github.com/WisdomShun/longbridge-mcp-docker.git
 cd longbridge-mcp-docker
 ```
 
-### 2. 配置环境变量
+#### 2. 配置环境变量
 
 在项目根目录创建 `.env` 文件：
 
