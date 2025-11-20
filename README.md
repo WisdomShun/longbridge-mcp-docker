@@ -1,6 +1,6 @@
 # longbridge-mcp-docker
 
-[![Docker Build and Test](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml)
+[![Docker Build and Test](https://github.com/metaif/longbridge-mcp-docker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/metaif/longbridge-mcp-docker/actions/workflows/docker-build-test.yml)
 [![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -36,10 +36,10 @@ Directly use the pre-built image from GitHub Container Registry:
 
 ```bash
 # Pull the latest version
-docker pull ghcr.io/wisdomshun/longportmcpdocker:latest
+docker pull ghcr.io/metaif/longportmcpdocker:latest
 
 # Or pull a specific version
-docker pull ghcr.io/wisdomshun/longportmcpdocker:v1.0.0
+docker pull ghcr.io/metaif/longportmcpdocker:v1.0.0
 
 # Run directly
 docker run -d \
@@ -50,7 +50,7 @@ docker run -d \
   -e LONGPORT_READONLY=true \
   -p 8000:8000 \
   -v ./logs:/var/log/longport-mcp \
-  ghcr.io/wisdomshun/longportmcpdocker:latest
+  ghcr.io/metaif/longportmcpdocker:latest
 ```
 
 ### Option 2: Build from Source
@@ -58,7 +58,7 @@ docker run -d \
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/WisdomShun/longbridge-mcp-docker.git
+git clone https://github.com/metaif/longbridge-mcp-docker.git
 cd longbridge-mcp-docker
 ```
 

@@ -1,6 +1,6 @@
 # longbridge-mcp-docker
 
-[![Docker 构建测试](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/WisdomShun/longbridge-mcp-docker/actions/workflows/docker-build-test.yml)
+[![Docker 构建测试](https://github.com/metaif/longbridge-mcp-docker/actions/workflows/docker-build-test.yml/badge.svg)](https://github.com/metaif/longbridge-mcp-docker/actions/workflows/docker-build-test.yml)
 [![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 [![许可证](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -36,10 +36,10 @@ Longbridge MCP（模型上下文协议）服务器的 Docker 封装，提供简�
 
 ```bash
 # 拉取最新版本
-docker pull ghcr.io/wisdomshun/longportmcpdocker:latest
+docker pull ghcr.io/metaif/longportmcpdocker:latest
 
 # 或拉取特定版本
-docker pull ghcr.io/wisdomshun/longportmcpdocker:v1.0.0
+docker pull ghcr.io/metaif/longportmcpdocker:v1.0.0
 
 # 直接运行
 docker run -d \
@@ -50,7 +50,7 @@ docker run -d \
   -e LONGPORT_READONLY=true \
   -p 8000:8000 \
   -v ./logs:/var/log/longport-mcp \
-  ghcr.io/wisdomshun/longportmcpdocker:latest
+  ghcr.io/metaif/longportmcpdocker:latest
 ```
 
 ### 方式二：从源码构建
@@ -58,7 +58,7 @@ docker run -d \
 #### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/WisdomShun/longbridge-mcp-docker.git
+git clone https://github.com/metaif/longbridge-mcp-docker.git
 cd longbridge-mcp-docker
 ```
 
