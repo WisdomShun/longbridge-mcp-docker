@@ -78,13 +78,16 @@ jobs:
           provenance: true
           sbom: true
       
-      - name: Generate release notes
-        id: release_notes
+      - name: Generate Docker image info
+        id: docker_info
         run: |
-          cat > release_notes.md << 'EOF'
-          ## Docker Images
+          cat > docker_info.md << 'EOF'
           
-          This release includes multi-architecture Docker images:
+          ---
+          
+          ## 🐳 Docker Images
+          
+          Multi-architecture Docker images are available:
           - `linux/amd64` (x86_64)
           - `linux/arm64` (aarch64)
           
@@ -107,15 +110,16 @@ jobs:
           For more details, see the [README](https://github.com/${{ github.repository }}).
           EOF
           
-          echo "notes<<EOF" >> $GITHUB_OUTPUT
-          cat release_notes.md >> $GITHUB_OUTPUT
+          echo "info<<EOF" >> $GITHUB_OUTPUT
+          cat docker_info.md >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
       
-      - name: Create GitHub Release
+      - name: Update GitHub Release with Docker info
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          body: ${{ steps.release_notes.outputs.notes }}
+          append_body: true
+          body: ${{ steps.docker_info.outputs.info }}
           draft: false
           prerelease: false
         env:
