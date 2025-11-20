@@ -20,7 +20,7 @@ jobs:
     name: Build and Push Multi-arch Image
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       id-token: write
     
