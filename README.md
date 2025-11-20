@@ -15,6 +15,7 @@ This project packages the `longport-mcp` server in a Docker container, making it
 ## Features
 
 - 🐳 **Docker-based deployment** - Easy setup with Docker Compose
+- 📦 **Pre-built images** - Multi-architecture images available via GitHub Container Registry
 - 🔒 **Secure configuration** - Environment variable-based credential management
 - 📊 **Persistent logging** - Logs are stored in a mounted volume
 - 💚 **Health monitoring** - Built-in health checks for service reliability
@@ -29,14 +30,39 @@ This project packages the `longport-mcp` server in a Docker container, making it
 
 ## Quick Start
 
-### 1. Clone the Repository
+### Option 1: Using Pre-built Image (Recommended)
+
+Directly use the pre-built image from GitHub Container Registry:
+
+```bash
+# Pull the latest version
+docker pull ghcr.io/wisdomshun/longportmcpdocker:latest
+
+# Or pull a specific version
+docker pull ghcr.io/wisdomshun/longportmcpdocker:v1.0.0
+
+# Run directly
+docker run -d \
+  --name longport-mcp-server \
+  -e LONGPORT_APP_KEY=your_app_key \
+  -e LONGPORT_APP_SECRET=your_app_secret \
+  -e LONGPORT_ACCESS_TOKEN=your_access_token \
+  -e LONGPORT_READONLY=true \
+  -p 8000:8000 \
+  -v ./logs:/var/log/longport-mcp \
+  ghcr.io/wisdomshun/longportmcpdocker:latest
+```
+
+### Option 2: Build from Source
+
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/WisdomShun/longbridge-mcp-docker.git
 cd longbridge-mcp-docker
 ```
 
-### 2. Configure Environment Variables
+#### 2. Configure Environment Variables
 
 Create a `.env` file in the project root:
 
